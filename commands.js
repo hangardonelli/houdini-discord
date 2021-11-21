@@ -99,14 +99,7 @@ const comandos = [
         accion: getOnlinePlayers,
         sintaxis: "<Nombre del servidor>"
     }
-   /* {
-        id: 9,
-        nombre: name.toLowerCase() + '_help',
-        descripcion: "Ayuda",
-        accion: obtenerAyuda,
-        uso: "Muestra la ayuda en pantalla",
-        sintaxis: "<comando> (opcional)"
-    }*/
+
     
 ];
 
