@@ -1,0 +1,55 @@
+{
+    "name": "Houdini Bot",
+    "token": "",
+    "prefix": "!",
+    "color": "#ff0000",
+    "roles": {
+        "moderador": "ROLE_ID",
+        "administrador": "ROLE_ID"
+    },
+    "messages": {
+        "penguinNotFound": "Mmm, no encontré al pingüino que solicitaste. ¿Lo escribiste bien? 🤔",
+        "itemNotfound": "No encontré el item {ITEMID}. ¿Lo escribiste bien?",
+        "serverNotfound": "No encontré el servidor {SERVERNAME}. ¿Lo escribiste bien?",
+        "itemExistsOnPlayer": "El jugador ya tenía este item.",
+        "ok": "¡Listo! 😉",
+        "itemAdded": "¡Listo! Le añadí el item {ITEMNAME} al usuario {USERNAME}.",
+        "badRequest": "Creo que no escribiste bien el comando, no pude entenderte 😔",
+        "banDBMessage": "Banned by {MODERATOR} via Discord using {BOTNAME}",
+        "connectedPlayersCount": "Actualmente hay **{WORLDPLAYERCOUNT} jugador/es** conectados en {SERVERNAME}",
+        "noPlayersInServer": "No hay jugadores conectados en este servidor",
+        "connectedPlayersMessage": "Los jugadores conectados en el servidor son: "
+    },
+    "postgres": {
+        "host": "localhost",
+        "port": 5432,
+        "user": "user",
+        "password": "password",
+        "db": "houdini" 
+    },
+    "redis":{
+        "host": "localhost",
+        "port": 1111
+    },
+    "servers":[
+        {
+            "id": "3101",
+            "name": "Glaciar"
+        }
+    ],
+    "filter": [
+        "select",
+        "delete",
+        "truncate",
+        "drop",
+        "while",
+        "'",
+        ";",
+        "(",
+        ")",
+        "=",
+        "<",
+        ">"
+    ]
+
+}
