@@ -16,4 +16,24 @@ Currently, I know that there are other similar tools but that they need to be in
 - ✅ Its not a houdini plugin
 - ✅ Easy to modify 💪
 - ✅ Uses Discord server roles as privileges 
+- ✅ Multi-Account detector
 - ✅ Commands Like ban, add items, coins, furnitures, playercard info, online players in a server and more!
+
+
+
+### Requirements:
+This bot requires your houdini credentials and you are also going to need a discord bot token with administration privileges (8). 
+- Discord Bot Token
+- Server IP 
+- Redis Port (note that if your houdini instance is running in docker-composer the port is probably not the default for redis, in that case you (use `docker ps` to check)
+- PostgreSQL credentials
+- List of CPPS servers (name and ids)
+
+
+
+### How to install?
+Download the repository and install all dependencies by
+ `npm install`
+ 
+Once you are done configuring the config.json file, the bot can be run by typing `npm start`
+ 
