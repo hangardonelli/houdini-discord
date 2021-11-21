@@ -12,8 +12,8 @@ Currently, I know that there are other similar tools but that they need to be in
 
 
 ##### Features
- - ✅ 5 min configuration!
- - ✅ Its not a houdini plugin
- - ✅ Easy to modify 💪
- - ✅ Uses Discord server roles as privileges 
- - ✅ Commands Like ban, add items, coins, furnitures, playercard info, online players in a server and more!
+- ✅ 5 min configuration!
+- ✅ Its not a houdini plugin
+- ✅ Easy to modify 💪
+- ✅ Uses Discord server roles as privileges 
+- ✅ Commands Like ban, add items, coins, furnitures, playercard info, online players in a server and more!
