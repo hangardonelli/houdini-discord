@@ -7,7 +7,7 @@ const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_
 
 
 client.once('ready', () => {
-    console.log('maggy atr funcionado rey 😎!'); 
+    console.log('Bot is running!'); 
 });
 
 client.on("messageCreate", (message) => {
