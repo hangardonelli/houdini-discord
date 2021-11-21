@@ -25,7 +25,7 @@ Currently, I know that there are other similar tools but that they need to be in
 This bot requires your houdini credentials and you are also going to need a discord bot token with administration privileges (8). 
 - Discord Bot Token
 - Server IP 
-- Redis Port (note that if your houdini instance is running in docker-compose the port is probably not the default for redis, in that case you (use `docker ps` to check)
+- Redis Port (note that if your houdini instance is running in docker-compose the port is probably not the default for redis. In that case (use `docker ps` to check)
 - PostgreSQL credentials for READ/WRITE/Exec functions and stored procedures
 - List of CPPS servers (name and ids)
 
