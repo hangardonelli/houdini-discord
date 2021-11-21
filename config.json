@@ -37,19 +37,6 @@
             "name": "Glaciar"
         }
     ],
-    "filter": [
-        "select",
-        "delete",
-        "truncate",
-        "drop",
-        "while",
-        "'",
-        ";",
-        "(",
-        ")",
-        "=",
-        "<",
-        ">"
-    ]
+  
 
 }
