@@ -4,7 +4,7 @@ A Houdini administration utility for Discord
 
 At this time, although the application is functional and usable without problems, there are some issues to close.
  1. Change flat queries to parameterized queries
- 2. Fully translate the code into English
+ 2. Fully translate the code into English (because initially this was created for a spanish cpps) 
  3. Add more administration commands
 
 ###### Why?
