@@ -26,7 +26,7 @@ This bot requires your houdini credentials and you are also going to need a disc
 - Discord Bot Token
 - Server IP 
 - Redis Port (note that if your houdini instance is running in docker-composer the port is probably not the default for redis, in that case you (use `docker ps` to check)
-- PostgreSQL credentials
+- PostgreSQL credentials for READ/WRITE/Exec functions and stored procedures
 - List of CPPS servers (name and ids)
 
 
