@@ -32,7 +32,7 @@ This bot requires your houdini credentials and you are also going to need a disc
 
 
 ### How to install?
-Download the repository and install all dependencies by
+Download the repository and install all dependencies with
  `npm install`
  
 Once you are done configuring the config.json file, the bot can be run by typing `npm start`
