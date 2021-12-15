@@ -4,8 +4,7 @@ A Houdini administration utility for Discord
 
 At this time, although the application is functional and usable without problems, there are some issues to close.
  1. Change flat queries to parameterized queries
- 2. Fully translate the code into English (because initially this was created for a spanish cpps) 
- 3. Add more administration commands
+ 2. Add more administration commands
 
 ###### Why?
 Currently, I know that there are other similar tools but that they need to be installed as houdini modules or plugins, so their modification entails restarting the cpps and the obligation to write them in Python
