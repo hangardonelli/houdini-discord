@@ -1,7 +1,5 @@
 const { postgres } = require('../config.json');
-const { Pool } = require('pg')
-
-
+const { Pool } = require('pg');
 
 const pool = new Pool({
   user: postgres.user,
@@ -9,20 +7,16 @@ const pool = new Pool({
   database: postgres.database,
   password: postgres.password,
   port: postgres.port,
-})
+});
 
-async function query(q){
-    const res = await pool.query(q);
-  
-    return res.rows;
+async function query(q) {
+  const { rows } = await pool.query(q);
+  return rows;
 }
 
-async function fullQuery(q){
-    const res = await pool.query(q);
-    return res;
+async function fullQuery(q) {
+  const res = await pool.query(q);
+  return res;
 }
-
 
 module.exports = { query, fullQuery };
-
-
