@@ -1,46 +1,48 @@
 const db = require('../db/database.js');
 const { redisClient } = require('../db/redis.js');
 const message = require('../messageSender/msg.js');
-const configuration = require('../config.json');
+const { messages, prefix, servers } = require('../config.json');
 
-async function getOnlinePlayersLogic(err, data, msg, cmd){
-    try{
-        if(err){ 
-            console.log(err);
-            throw "REDIS_EXCEPTION";
-        }
-        if(data.length == 0){
-            message.embed(msg.channel, configuration.messages.noPlayersInServer, cmd.descripcion);
-            return;
-        }
-        let q = await db.query(`SELECT nickname FROM penguin WHERE id in (${data.join(",")});`);
-        
-        let messageToSend = configuration.messages.connectedPlayersMessage;
-
-        for(let i = 0; i < q.length; i++){
-            messageToSend = messageToSend + "\n" + q[i].nickname;
-        }
-
-        message.embed(msg.channel, messageToSend, cmd.descripcion);
-
+async function getOnlinePlayersLogic(err, data, msg, cmd) {
+  try {
+    if (err) {
+      console.error(err);
+      throw new Error("REDIS_EXCEPTION");
     }
-    catch(exception){
-        msg.channel.send(configuration.messages.badRequest);
-    }
-}
-async function getOnlinePlayers(msg, cmd){
-    let command = `${configuration.prefix + cmd.nombre} `;
-    
 
-    let server = configuration.servers.find(s => s.name.toLowerCase() == msg.content.replace(command, "").toLowerCase());
-    if(!server){
-        message.embed(msg.channel, configuration.messages.serverNotfound.replace("{SERVERNAME}", msg.content.replace(command, "").toLowerCase()));
-        return;
+    if (data.length === 0) {
+      message.embed(msg.channel, messages.noPlayersInServer, cmd.descripcion);
+      return;
     }
-    redisClient.smembers(`houdini.players.${server.id}`, (err, data) => {
-        getOnlinePlayersLogic(err, data, msg, cmd)
-    } );
-    
+
+    const playerIds = data.join(",");
+    const playersQuery = await db.query(`SELECT nickname FROM penguin WHERE id IN (${playerIds});`);
+
+    let messageToSend = messages.connectedPlayersMessage;
+
+    playersQuery.forEach(player => {
+      messageToSend += `\n${player.nickname}`;
+    });
+
+    message.embed(msg.channel, messageToSend, cmd.descripcion);
+  } catch (exception) {
+    console.error(exception);
+    msg.channel.send(messages.badRequest);
+  }
 }
 
-module.exports = { getOnlinePlayers }
+async function getOnlinePlayers(msg, cmd) {
+  const serverName = msg.content.replace(`${prefix + cmd.nombre} `, "").toLowerCase();
+  const server = servers.find(s => s.name.toLowerCase() === serverName);
+
+  if (!server) {
+    message.embed(msg.channel, messages.serverNotfound.replace("{SERVERNAME}", serverName));
+    return;
+  }
+
+  redisClient.smembers(`houdini.players.${server.id}`, (err, data) => {
+    getOnlinePlayersLogic(err, data, msg, cmd);
+  });
+}
+
+module.exports = { getOnlinePlayers };
